@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:FormsDemo"
+    x:Class="FormsDemo.BindingsPage">
+    
+    <ContentPage.Resources>
+        <local:ColorConverter x:Key="colorConv" />
+        <x:Double x:Key="sliderLabelWidth">120</x:Double>
+    </ContentPage.Resources>
+    
+    <StackLayout>
+        <Label VerticalOptions="CenterAndExpand"
+               HorizontalOptions="CenterAndExpand"
+               BindingContext="{Reference ScaleSlider}"
+               Scale="{Binding Path=Value}"
+               TextColor="{Binding Value, Source={Reference ColorSlider}, Converter={StaticResource colorConv}}"
+                x:Name="MainLabel">
+            <Label.Text>
+                <OnPlatform x:TypeArguments="x:String">
+                    <On Platform="iOS" 
+                        Value="Texto iOS" />
+                    <On>
+                        <On.Platform>Android</On.Platform>
+                        <On.Value>Texto Android</On.Value>
+                    </On>
+                </OnPlatform>
+            </Label.Text>
+            <!--<Label.TextColor>
+                <Binding Path="Value"
+                    Source="{Reference ColorSlider}">
+                    <Binding.Converter>
+                        <local:ColorConverter />
+                    </Binding.Converter>
+                </Binding>
+            </Label.TextColor>-->
+        </Label>
+        <StackLayout Orientation="Horizontal">
+            <Label
+                WidthRequest="{StaticResource sliderLabelWidth}"
+                BindingContext="{Reference ScaleSlider}"
+                Text="{Binding Value,StringFormat='Escala: {0:F2}'}"/>
+            <Slider x:Name="ScaleSlider"
+                HorizontalOptions="FillAndExpand"
+                Maximum="10" Minimum="1" />
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Label 
+                WidthRequest="{StaticResource sliderLabelWidth}"
+                BindingContext="{Reference RotationSlider}"
+                Text="{Binding Value,StringFormat='Rotação: {0:F2}'}"/>
+            <Slider x:Name="RotationSlider"
+                HorizontalOptions="FillAndExpand"
+                Maximum="360"
+                BindingContext="{Reference MainLabel}"
+                Value="{Binding Rotation, Mode=OneWayToSource}"/>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Label 
+                WidthRequest="{StaticResource sliderLabelWidth}"
+                BindingContext="{Reference RotationXSlider}"
+                Text="{Binding Value,StringFormat='Rotação X: {0:F2}'}"/>
+            <Slider x:Name="RotationXSlider"
+                HorizontalOptions="FillAndExpand"
+                Maximum="360"/>
+        </StackLayout>
+        <StackLayout Orientation="Horizontal">
+            <Label 
+                WidthRequest="{StaticResource sliderLabelWidth}"
+                BindingContext="{Reference ColorSlider}"
+                Text="{Binding Value,StringFormat='Matiz: {0:F2}'}"/>
+            <Slider x:Name="ColorSlider"
+                HorizontalOptions="FillAndExpand"
+                Maximum="360"/>
+        </StackLayout>
+    </StackLayout>
+</ContentPage>

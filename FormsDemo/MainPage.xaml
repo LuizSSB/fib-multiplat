@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:FormsDemo"
+    x:Class="FormsDemo.MainPage"
+    Title="Principal">
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <On Platform="iOS" Value="0,20,0,20" />
+            <On Platform="Android" Value="0,0,0,0"/>
+        </OnPlatform>
+    </ContentPage.Padding>
+    <StackLayout>
+        <!-- Place new controls here -->
+        <Label HorizontalOptions="Center" VerticalOptions="Start">
+            <Label.Text>Hello world</Label.Text>
+        </Label>
+        <Entry x:Name="AppIdEntry" Placeholder="ID do aplicativo" HorizontalOptions="StartAndExpand"/>
+        <Button Text="Abrir app" Clicked="Handle_Clicked"/>
+        <Button Text="Histórico"
+                Clicked="Handle_History" />
+        <Button Text="Bindings"
+                Clicked="Handle_Bindings" />
+    </StackLayout>
+</ContentPage>
