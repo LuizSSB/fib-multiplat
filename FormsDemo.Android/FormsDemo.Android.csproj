@@ -84,6 +84,15 @@
     <AndroidResource Include="Resources\mipmap-xxhdpi\launcher_foreground.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\Icon.png" />
     <AndroidResource Include="Resources\mipmap-xxxhdpi\launcher_foreground.png" />
+    <AndroidResource Include="..\FormsDemo.iOS\Assets.xcassets\apple.imageset\apple.png">
+      <Link>Resources\drawable\apple.png</Link>
+    </AndroidResource>
+    <AndroidResource Include="Resources\drawable\android.png" />
+    <AndroidResource Include="Resources\drawable\eye.png" />
+    <AndroidResource Include="Resources\drawable\file.png" />
+    <AndroidResource Include="Resources\drawable\news.png" />
+    <AndroidResource Include="Resources\drawable\star.png" />
+    <AndroidResource Include="Resources\drawable\users.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\drawable\" />

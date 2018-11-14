@@ -1,6 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<Application xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="FormsDemo.App">
+<Application
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:FormsDemo"
+    x:Class="FormsDemo.App">
     <Application.Resources>
-        
+        <ResourceDictionary>
+            <Style x:Key="defaultPage" TargetType="Page">
+                <Setter Property="Padding">
+                    <Setter.Value>
+                        <OnPlatform x:TypeArguments="Thickness">
+                            <On Platform="iOS" Value="0,20,0,20" />
+                            <On Platform="Android" Value="0,0,0,0"/>
+                        </OnPlatform>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </ResourceDictionary>
     </Application.Resources>
+    <Application.MainPage>
+        <MasterDetailPage x:Name="MyMasterDetailPage">
+            <MasterDetailPage.Master>
+                <local:MasterPage>
+                    <x:Arguments>
+                        <x:Array Type="{x:Type Page}">
+                            <NavigationPage Title="FlexLayout" Icon="android.png">
+                                <x:Arguments><local:FlexLayoutPage Title="Fkex mew" /></x:Arguments>
+                            </NavigationPage>
+                            
+                            <NavigationPage Title="Grid" Icon="apple.png">
+                                <x:Arguments><local:GridPage Title="Grid mew" /></x:Arguments>
+                            </NavigationPage>
+                            
+                            <NavigationPage Title="Tabela" Icon="star.png">
+                                <x:Arguments><local:TableViewPage Title="Tabela mew" /></x:Arguments>
+                            </NavigationPage>
+                            
+                            <TabbedPage Title="Abas" Icon="star.png">
+                                <TabbedPage.Children>
+                                    <NavigationPage Title="Página" Icon="news.png">
+                                        <x:Arguments>
+                                            <local:MainPage />
+                                        </x:Arguments>
+                                    </NavigationPage>
+                                    <local:BindingsPage Icon="apple.png" />
+                                </TabbedPage.Children>
+                            </TabbedPage>
+                            <local:BindingsPage />
+                            <NavigationPage Title="Listas" Icon="file.png">
+                                <x:Arguments><local:ListViewPage Title="Lista mew" /></x:Arguments>
+                            </NavigationPage>
+                        </x:Array>
+                    </x:Arguments>
+                </local:MasterPage>
+            </MasterDetailPage.Master>
+            <MasterDetailPage.Detail>
+                <ContentPage />
+            </MasterDetailPage.Detail>
+        </MasterDetailPage>
+    </Application.MainPage>
 </Application>

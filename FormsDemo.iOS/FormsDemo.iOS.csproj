@@ -141,6 +141,8 @@
     <ImageAsset Include="Assets.xcassets\AppIcon.appiconset\Icon20.png">
       <Visible>false</Visible>
     </ImageAsset>
+    <ImageAsset Include="Assets.xcassets\apple.imageset\Contents.json" />
+    <ImageAsset Include="Assets.xcassets\apple.imageset\apple.png" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -157,5 +159,8 @@
       <Project>{9CA0D4D4-CFFA-453B-AD23-67508BD89CA7}</Project>
       <Name>FormsDemo</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Assets.xcassets\apple.imageset\" />
   </ItemGroup>
 </Project>

@@ -7,6 +7,11 @@ namespace FormsDemo
 {
     public partial class BindingsPage : ContentPage
     {
+        async void Handle_Back(
+            object sender, EventArgs e
+        ) {
+            await Navigation.PopAsync();
+        }
         public BindingsPage()
         {
             InitializeComponent();

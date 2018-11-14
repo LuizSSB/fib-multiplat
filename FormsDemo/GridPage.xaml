@@ -3,26 +3,30 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:FormsDemo"
-    x:Class="FormsDemo.BindingsPage"
-    Icon="file.png"
-    Title="Bindings radicais">
-    
-    <ContentPage.ToolbarItems>
-        <ToolbarItem
-            Text="Voltar"
-            Clicked="Handle_Back"/>
-    </ContentPage.ToolbarItems>
+    x:Class="FormsDemo.GridPage">
     
     <ContentPage.Resources>
         <local:ColorConverter x:Key="colorConv" />
         <x:Double x:Key="sliderLabelWidth">120</x:Double>
     </ContentPage.Resources>
     
-    <StackLayout>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="3*" />
+            <ColumnDefinition Width="7*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+        </Grid.RowDefinitions>
         <Label VerticalOptions="CenterAndExpand"
                HorizontalOptions="CenterAndExpand"
                BindingContext="{Reference ScaleSlider}"
                Scale="{Binding Path=Value}"
+               Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="2"
                TextColor="{Binding Value, Source={Reference ColorSlider}, Converter={StaticResource colorConv}}"
                 x:Name="MainLabel">
             <Label.Text>
@@ -44,43 +48,44 @@
                 </Binding>
             </Label.TextColor>-->
         </Label>
-        <StackLayout Orientation="Horizontal">
             <Label
+                Grid.Row="1" Grid.Column="0"
                 WidthRequest="{StaticResource sliderLabelWidth}"
                 BindingContext="{Reference ScaleSlider}"
                 Text="{Binding Value,StringFormat='Escala: {0:F2}'}"/>
             <Slider x:Name="ScaleSlider"
+                    Grid.Row="1" Grid.Column="1"
                 HorizontalOptions="FillAndExpand"
                 Maximum="10" Minimum="1" />
-        </StackLayout>
-        <StackLayout Orientation="Horizontal">
-            <Label 
+        
+            <Label Grid.Row="2" Grid.Column="0"
                 WidthRequest="{StaticResource sliderLabelWidth}"
                 BindingContext="{Reference RotationSlider}"
                 Text="{Binding Value,StringFormat='Rotação: {0:F2}'}"/>
             <Slider x:Name="RotationSlider"
+                    Grid.Row="2" Grid.Column="1"
                 HorizontalOptions="FillAndExpand"
                 Maximum="360"
                 BindingContext="{Reference MainLabel}"
                 Value="{Binding Rotation, Mode=OneWayToSource}"/>
-        </StackLayout>
-        <StackLayout Orientation="Horizontal">
-            <Label 
+        
+            <Label Grid.Row="3" Grid.Column="0"
                 WidthRequest="{StaticResource sliderLabelWidth}"
                 BindingContext="{Reference RotationXSlider}"
                 Text="{Binding Value,StringFormat='Rotação X: {0:F2}'}"/>
             <Slider x:Name="RotationXSlider"
+                    Grid.Row="3" Grid.Column="1"
                 HorizontalOptions="FillAndExpand"
                 Maximum="360"/>
-        </StackLayout>
-        <StackLayout Orientation="Horizontal">
-            <Label 
+        
+            <Label Grid.Row="4" Grid.Column="0"
                 WidthRequest="{StaticResource sliderLabelWidth}"
                 BindingContext="{Reference ColorSlider}"
                 Text="{Binding Value,StringFormat='Matiz: {0:F2}'}"/>
             <Slider x:Name="ColorSlider"
+                    Grid.Row="4" Grid.Column="1"
                 HorizontalOptions="FillAndExpand"
                 Maximum="360"/>
-        </StackLayout>
-    </StackLayout>
+        
+    </Grid>
 </ContentPage>

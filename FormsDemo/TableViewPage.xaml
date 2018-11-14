@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="FormsDemo.TableViewPage">
+    <TableView Intent="Form">
+        <TableView.Root>
+            <TableRoot>
+                <TableSection Title="Dados">
+                    <EntryCell Label="Nome"
+                               Placeholder="Digita o nome"/>
+                    <SwitchCell Text="Receber email?"
+                                On="true"/>
+                    <ViewCell>
+                        <StackLayout>
+                            <Label Text="abazagorath"/>
+                            <Label Text="texto 2"/>
+                        </StackLayout>
+                    </ViewCell>
+                </TableSection>
+                <TableSection>
+                    <ViewCell Tapped="Handle_Tapped">
+                        <Label HorizontalOptions="Center"
+                               Text="Salvar"/>
+                    </ViewCell>
+                </TableSection>
+            </TableRoot>
+        </TableView.Root>
+    </TableView>
+</ContentPage>

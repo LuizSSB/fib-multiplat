@@ -2,15 +2,16 @@
 <ContentPage
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    xmlns:local="clr-namespace:FormsDemo"
     x:Class="FormsDemo.MainPage"
+    xmlns:local="clr-namespace:FormsDemo"
     Title="Principal">
-    <ContentPage.Padding>
-        <OnPlatform x:TypeArguments="Thickness">
-            <On Platform="iOS" Value="0,20,0,20" />
-            <On Platform="Android" Value="0,0,0,0"/>
-        </OnPlatform>
-    </ContentPage.Padding>
+    <ContentPage.ToolbarItems>
+        <ToolbarItem
+            Text="Botão"
+            Clicked="Handle_Toolbar" />
+        <ToolbarItem
+            Icon="android.png" />
+    </ContentPage.ToolbarItems>
     <StackLayout>
         <!-- Place new controls here -->
         <Label HorizontalOptions="Center" VerticalOptions="Start">

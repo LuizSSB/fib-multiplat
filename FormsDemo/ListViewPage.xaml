@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:FormsDemo"
+    x:Class="FormsDemo.ListViewPage">
+    
+    <ListView IsGroupingEnabled="true" HasUnevenRows="true">
+        <ListView.ItemsSource>
+            <x:Array Type="{x:Type local:ListSection}">
+                <local:ListSection Title="Seção 1">
+                    <local:ListItem
+                        IconName="news.png" ItemTitle="Item 1"
+                        Subtitle="Subtitulo 1" />
+                    <local:ListItem
+                        IconName="apple.png" ItemTitle="Item 2"
+                        Subtitle="Subtitulo 2" />
+                    <local:ListItem
+                        IconName="android.png" ItemTitle="Item 3"
+                        Subtitle="Subtitulo 3" />
+                </local:ListSection>
+                <local:ListSection Title="Seção 2">
+                    <local:ListItem IconName="eye.png"
+                                    ItemTitle="Item a"
+                                    Subtitle="lasdnbasjhdbas,bdbdfm knabs d,gasghd gahs gdh,a shd as,gd,asmn,d bamns, bdmn,as bdm,n basm,d,masbdm,asm,dmn,a sbdm,amn"
+                                    />
+                    <local:ListItem IconName="file.png"
+                                    ItemTitle="Item b"
+                                    Subtitle="lasdnbasjhdbas,bdbdfm knabs d,gasghd gahs gdh,a shd as,gd,asmn,d bamns, bdmn,as bdm,n basm,d,masbdm,asm,dmn,a sbdm,amn"
+                                    />
+                </local:ListSection>
+            </x:Array>
+        </ListView.ItemsSource>
+        <ListView.GroupHeaderTemplate>
+            <DataTemplate>
+                <TextCell Text="{Binding Title}"/>
+            </DataTemplate>
+        </ListView.GroupHeaderTemplate>
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout Orientation="Horizontal"
+                                 Padding="10,10,10,10">
+                        <Image Source="{Binding IconName}"
+                               WidthRequest="40"
+                               HeightRequest="40"
+                               VerticalOptions="CenterAndExpand"/>
+                        
+                        <StackLayout>
+                            <Label Text="{Binding ItemTitle}"/>
+                            <Label Text="{Binding Subtitle}"
+                                   FontSize="Small"
+                                   TextColor="Gray"/>
+                        </StackLayout>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>

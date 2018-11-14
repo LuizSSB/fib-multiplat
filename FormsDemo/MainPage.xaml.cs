@@ -9,6 +9,14 @@ namespace FormsDemo
 {
     public partial class MainPage : ContentPage
     {
+        async void Handle_Toolbar(
+            object sender,
+            EventArgs e
+        ) {
+            await Navigation.PushAsync(
+                new BindingsPage()
+            );
+        }
         async void Handle_History(
             object sender,
             EventArgs e
@@ -23,7 +31,7 @@ namespace FormsDemo
             EventArgs e
         )
         {
-            await Navigation.PushModalAsync(
+            await this.Navigation.PushModalAsync(
                 new BindingsPage()
             );
 
