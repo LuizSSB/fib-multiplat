@@ -24,6 +24,10 @@
                 <local:MasterPage>
                     <x:Arguments>
                         <x:Array Type="{x:Type Page}">
+                            <NavigationPage Title="Página Do Arquivo" Icon="file.png">
+                                <x:Arguments><local:FilePage Title="Arquivo mey" /></x:Arguments>
+                            </NavigationPage>
+                            
                             <NavigationPage Title="FlexLayout" Icon="android.png">
                                 <x:Arguments><local:FlexLayoutPage Title="Fkex mew" /></x:Arguments>
                             </NavigationPage>
